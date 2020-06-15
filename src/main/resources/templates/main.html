@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>estudiantes</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Edad</th>
+    <th>Estado</th>
+    </thead>
+    <th:block th:each="estudiante, row:${estudiantes}">
+        <tr>
+            <th th:text="${estudiante.id_estudiante}"/>
+            <th th:text="${estudiante.nombre}"/>
+            <th th:text="${estudiante.apellido}"/>
+            <th th:text="${estudiante.edad}"/>
+            <th th:text="${estudiante.estado}"/>
+        </tr>
+    </th:block>
+</table>
+
+<form th:action = "@{/insertarEstudiante}">
+    <input type="submit" value="Insertar nuevo Estudiante">
+</form><br>
+<form th:action="@{/borrarEstudiante}" method="post">
+    <label>Borrar estudiante por codigo: </label>
+    <input type="number" name="codigo"><br>
+    <input type="submit" value="Borrar">
+</form>
+
+</body>
+</html>
