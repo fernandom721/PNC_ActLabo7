@@ -33,5 +33,14 @@
     <input type="submit" value="Borrar">
 </form>
 
+<form th:action="@{/Filtrar}" method="post">
+    <label>Ingrese la cadena por la que se desea filtrar: </label>
+    <input type="text" name="nombre"><br>
+    <input type="submit" value="Filtrar">
+</form>
+<form th:action="@{/estudiante}">
+    <input type="submit" value="Regresar">
+</form>
+
 </body>
 </html>

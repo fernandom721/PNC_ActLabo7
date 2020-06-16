@@ -88,4 +88,19 @@ public class MainController {
         return mav;
     }
 
+    @PostMapping(value = "filtrar")
+    public ModelAndView filtro  (@RequestParam(value = "nombre") String cadena){
+        ModelAndView mav = new ModelAndView();
+        List<Estudiante> estudiantes = null;
+        try {
+            estudiantes = estudianteService.FiltrarPor(cadena);
+            //estudiantes = estudianteService.startwith(cadena);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        mav.setViewName("index");
+        mav.addObject("estudiantes",estudiantes);
+        return mav;
+    }
+
 }
