@@ -16,8 +16,8 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Integer>
     @Query(nativeQuery = true, value = "select * from public.estudiante")
     public List<Estudiante> ShowAll() throws DataAccessException;
 
-    @Query(nativeQuery = true, value = "select * from public.estudiante where = :cadena")
     //@Query(nativeQuery = true, value = "select * from public.estudiante where = ?1")
+    @Query(nativeQuery = true, value = "select * from public.estudiante where nombre = :cadena")
     public List<Estudiante> ShowByName(String cadena) throws DataAccessException;
 
     @Query(nativeQuery = true, value = "select nombre,apellido from public.estudiante ")

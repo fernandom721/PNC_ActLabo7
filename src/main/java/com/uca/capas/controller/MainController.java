@@ -87,8 +87,15 @@ public class MainController {
         mav.setViewName("agregarEstudiante");
         return mav;
     }
+    @GetMapping("/editarEstudiante")
+    public ModelAndView insert(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("estudiante",new Estudiante());
+        mav.setViewName("editarEstudiante");
+        return mav;
+    }
 
-    @PostMapping(value = "filtrar")
+    @PostMapping(value = "/Filtrar")
     public ModelAndView filtro  (@RequestParam(value = "nombre") String cadena){
         ModelAndView mav = new ModelAndView();
         List<Estudiante> estudiantes = null;
@@ -98,7 +105,7 @@ public class MainController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        mav.setViewName("index");
+        mav.setViewName("listaEstudiantes");
         mav.addObject("estudiantes",estudiantes);
         return mav;
     }
